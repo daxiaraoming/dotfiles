@@ -1,0 +1,135 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/NERDTree',{'on':'NERDTreeToggle'}
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'rking/ag.vim'
+Plug 'bling/vim-airline' 
+Plug 'gmarik/vundle'
+"Plug 'taglist.vim'
+
+Plug 'lepture/vim-velocity'
+Plug 'pangloss/vim-javascript'
+Plug 'mattn/emmet-vim'
+Plug 'jiangmiao/auto-pairs'
+
+"Plug 'davidhalter/jedi-vim'
+
+"vim-multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
+
+call plug#end()
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-l> :Lines<CR>
+
+
+
+syntax enable
+syntax on
+filetype on
+filetype plugin on
+filetype plugin indent on
+set enc=utf-8
+set backspace=indent,eol,start
+set whichwrap+=<,>,h,l
+set scrolloff=2
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+set history=1024
+set nofoldenable
+set foldmethod=syntax
+"set foldcolumn=4
+set ignorecase
+set smartcase
+set showcmd
+set nowrapscan
+set incsearch
+set hlsearch
+set noerrorbells
+set novisualbell
+set nobackup
+set noswapfile
+set smartindent
+set laststatus=2
+set showmatch
+set display=lastline
+set shortmess=atl
+set cursorline
+set clipboard=unnamed
+
+set shell=bash\ -i
+
+let mapleader=","
+let Tlist_Ctags_Cmd='/usr/local/cellar/ctags/5.8_1/bin/ctags'
+nnoremap <silent> <F8> :TlistToggle<CR>
+let Tlist_Show_One_File=1               "不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Sort_Type='name'
+let Tlist_WinWidth=30                   "设置taglist的宽度
+let Tlist_Exit_OnlyWindow=1             "如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window=1           "在右侧窗口中显示taglist窗口
+"let Tlist_Use_Left_Windo =1             "在左侧窗口中显示taglist窗口
+let Tlist_GainFocus_On_ToggleOpen=1     "显示时获取焦点
+
+"NERDTree
+let NERDTreeMinimalUI=1
+let NERDTreeShowHidden=1
+let NERDTree_tabs_open_on_console_startup =1
+
+"vim-multiple-cursors
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_select_all_word_key='<C-j>'
+let g:multi_cursor_start_word_key='<C-n>'
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+
+let g:javascript_plugin_jsdoc =1
+let g:javascript_plugin_ngdoc =1
+let g:javascript_plugin_flow =1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+
+"let NERDTree_tabs_focus_on_files=1
+nnoremap <silent> <F7> :NERDTreeToggle<CR>
+nnoremap <silent> <S-F7> :NERDTreeFind<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+nnoremap <leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+                    
+
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
+colorscheme solarized
+
+au BufNewFile,BufRead *.vm,*.html,*.htm set ft=velocity
+
+"按F5运行python"
+"map <F5> :Autopep8<CR> :w<CR> :call RunPython()<CR>
+"function RunPython()
+"    let mp = &makeprg
+"    let ef = &errorformat
+"    let exeFile = expand("%:t")
+"    setlocal makeprg=python\ -u
+"    set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+"    silent make %
+"    copen
+"    let &makeprg = mp
+"    let &errorformat = ef
+"endfunction
