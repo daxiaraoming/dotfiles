@@ -525,6 +525,15 @@ dump."
   ;; (setq shell-file-name "/bin/zsh")
   ;; (setq python-shell-exec-path '("~/.pyenv/shims/"))
 
+
+
+  ;; 自定义快捷键
+  (spacemacs/set-leader-keys
+    "ar" 'ranger
+    "bi" 'ibuffer
+    )
+  (global-set-key "\C-s" 'swiper)
+
   (add-hook 'python-mode-hook 'jedi:setup)
   (setq jedi:complete-on-dot t)
 
