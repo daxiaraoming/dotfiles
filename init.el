@@ -494,7 +494,7 @@ dump."
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; ss proxy. But it will cause anacond-mode failed.
-  (setq socks-server '("Default server" "127.0.0.1" 1080 5))
+  (setq socks-server '("Default server" "127.0.0.1" 7890 5))
   (setq evil-shift-round nil)
   (setq byte-compile-warnings '(not obsolete))
   (setq warning-minimum-level :error)
