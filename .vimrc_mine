@@ -64,7 +64,8 @@ set shortmess=atl
 set cursorline
 set clipboard=unnamed
 
-set shell=bash\ -i
+"set shell=zsh\ -i
+set shell=/bin/zsh\ -i
 
 let mapleader=","
 let Tlist_Ctags_Cmd='/usr/local/cellar/ctags/5.8_1/bin/ctags'
