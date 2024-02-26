@@ -65,7 +65,7 @@ export UPDATE_ZSH_DAYS=30
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump zsh-autosuggestions)
+plugins=( git z zsh-autosuggestions zsh-syntax-highlighting )
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.tmuxinator/.tmuxinator.zsh
@@ -103,6 +103,8 @@ alias mux='tmuxinator'
 alias vi='nvim'
 alias vim='nvim'
 alias e='emacs -nw'
+alias j=z
+alias ggg='cat ~/git/dotfiles/git_alias.sh | grep'
 
 alias asf='~/Downloads/asf/ASF-osx-x64/ArchiSteamFarm'
 alias ascf='sudo ~/Downloads/asf/ascf'
