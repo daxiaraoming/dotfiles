@@ -1,0 +1,13 @@
+/script_modules/
+/docs/
+/.gradle/
+**/build/
+**/.gradle/
+/logs/
+/gradle/
+
+# 3rd party
+.idea/
+.vscode/
+.DS_Store
+

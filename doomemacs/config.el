@@ -148,8 +148,9 @@
 ;; (winum-mode)
 
 ;; org TODO keywords
-(with-eval-after-load 'org
-  (setq org-todo-keywords '((sequence "TODO" "WORKING" "DONE"))))
+;;(with-eval-after-load 'org
+(after! org
+  (setq org-todo-keywords '((sequence "TODO(t)" "WORKING(w)" "|" "DONE(d)" "CANCEL(c)"))))
 
 
 ;; org代码块支持LSP
