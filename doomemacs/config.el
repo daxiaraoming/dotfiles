@@ -148,7 +148,9 @@
 ;; (winum-mode)
 
 ;; org TODO keywords
-(setq org-todo-keywords '((sequence "TODO" "WORKING" "DONE")))
+(with-eval-after-load 'org
+  (setq org-todo-keywords '((sequence "TODO" "WORKING" "DONE"))))
+
 
 ;; org代码块支持LSP
 (cl-defmacro lsp-org-babel-enable (lang)
